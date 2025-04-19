@@ -1,4 +1,3 @@
-import { mediaQuery } from "@/theme/mediaQuery";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -10,13 +9,6 @@ export const HeaderContainer = styled.header`
   padding: 16px 10%;
   background-color: ${({ theme }) => theme.colors.white.bg};
   height: 70px;
-
-  ${mediaQuery("sm", "max")`
-    flex-direction: column;
-    gap: 8px;
-    height: auto;
-    padding: 12px 5%;
-  `}
 `;
 
 export const LogoSection = styled.div`
@@ -35,10 +27,6 @@ export const LogoSection = styled.div`
 export const NavMenu = styled.nav`
   display: flex;
   gap: 24px;
-
-  ${mediaQuery("sm", "max")`
-    gap: 16px;
-  `}
 `;
 
 export const NavItem = styled.button`

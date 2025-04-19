@@ -1,5 +1,5 @@
 import * as dateFns from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { enUS } from "date-fns/locale";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -61,6 +61,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-dateFns.setDefaultOptions({ locale: ptBR });
+dateFns.setDefaultOptions({ locale: enUS });
 
 export default GlobalStyle;

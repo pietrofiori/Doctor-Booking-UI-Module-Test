@@ -13,7 +13,6 @@ export interface InputProps<T extends FieldValues>
   icon?: IconProps["iconName"];
   iconPosition?: "left" | "right";
   error?: string;
-  secondaryOnChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = <T extends FieldValues>({
@@ -25,7 +24,6 @@ export const Input = <T extends FieldValues>({
   iconPosition = "right",
   error,
   type,
-  secondaryOnChange,
   ...restInputProps
 }: InputProps<T>) => {
   return (

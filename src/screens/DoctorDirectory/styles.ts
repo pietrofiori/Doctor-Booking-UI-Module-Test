@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   padding: 32px 10%;
   background-color: ${({ theme }) => theme.colors.white.bg};
-  min-height: 100vh;
+  height: 100%;
 `;
 
 export const DoctorList = styled.div`
@@ -32,16 +32,18 @@ export const DoctorAvatarAndInfoContainer = styled.div`
   align-items: center;
   gap: ${({ theme }) => theme.spacings.md};
 `;
+
 export const DoctorAvatar = styled.img`
-  width: 30%;
-  height: 100%;
-  object-fit: contain;
+  width: 120px;
+  height: 120px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm};
+  object-fit: cover;
 `;
+
 export const DoctorInfo = styled.div`
   display: flex;
   margin-top: 5px;
   flex-direction: column;
-  width: 100%;
   justify-content: center;
   align-items: flex-start;
 `;

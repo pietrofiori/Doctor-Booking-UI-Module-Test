@@ -1,5 +1,7 @@
+import { useLocation } from "react-router-dom";
 import * as S from "./styles";
 import { Typography } from "@components/Typography";
+import { Logo } from "@assets/svgs/dynamics/Logo";
 
 interface HeaderProps {
   onClickHome: () => void;
@@ -7,19 +9,25 @@ interface HeaderProps {
 }
 
 export const Header = ({ onClickHome, onClickAppointments }: HeaderProps) => {
+  const location = useLocation();
+  const isHome = location.pathname === "/home";
+  const isAppointments = location.pathname === "/appointments";
   return (
     <S.HeaderContainer>
       <S.LogoSection>
-        <img src="" alt="Logo" />
-        <Typography>Doctor Booking UI Module</Typography>
+        <Logo />
+        <Typography>Doctor Booking UI Module </Typography>
       </S.LogoSection>
-
       <S.NavMenu>
         <S.NavItem onClick={onClickHome}>
-          <Typography>Home</Typography>
+          <Typography color={isHome ? "green.primary" : "gray.text"}>
+            Home
+          </Typography>
         </S.NavItem>
         <S.NavItem onClick={onClickAppointments}>
-          <Typography>Appointments</Typography>
+          <Typography color={isAppointments ? "green.primary" : "gray.text"}>
+            Appointments
+          </Typography>
         </S.NavItem>
       </S.NavMenu>
     </S.HeaderContainer>

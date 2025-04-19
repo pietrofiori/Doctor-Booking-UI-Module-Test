@@ -1,51 +1,47 @@
-import { Doctor } from "@constants/MOCK_DOCTORS";
 import * as S from "./styles";
-import { Typography } from "@components/Typography";
+import { Doctor } from "@constants/MOCK_DOCTORS";
 import { useFilter } from "./hooks/useFilter";
+import { Button } from "@components/Button";
+import { Input } from "@components/Input";
+import { Switch } from "@components/Switch";
+import { Typography } from "@components/Typography";
 
 interface DoctorsFilterProps {
   setDoctors: (doctors: Doctor[]) => void;
 }
 
 export const DoctorsFilter = ({ setDoctors }: DoctorsFilterProps) => {
-  const {
-    search,
-    specialty,
-    onlyAvailable,
-    setSearch,
-    setSpecialty,
-    setOnlyAvailable
-  } = useFilter(setDoctors);
+  const { control, handleSearch } = useFilter(setDoctors);
 
   return (
-    <S.FilterCard>
+    <S.FilterCard role="region" aria-label="Doctor search filters">
       <Typography tag="h2" fontSize="heading5" fontWeight="bold">
         Find A Doctor
       </Typography>
       <S.Filters>
-        <S.Input
-          placeholder="Name"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+        <Input
+          placeholder="Search by name"
+          control={control}
+          name="name"
           aria-label="Search doctor by name"
         />
-        <S.Input
-          placeholder="Speciality"
-          value={specialty}
-          onChange={(e) => setSpecialty(e.target.value)}
+        <Input
+          placeholder="Search by specialty"
+          control={control}
+          name="specialty"
           aria-label="Search doctor by specialty"
         />
-        <S.AvailableToggle>
-          <label htmlFor="availableToggle">Available</label>
-          <input
-            id="availableToggle"
-            type="checkbox"
-            checked={onlyAvailable}
-            onChange={() => setOnlyAvailable(!onlyAvailable)}
-            aria-label="Toggle only available doctors"
+        <S.AvailabilityContainer>
+          <Typography tag="p" fontSize="heading7">
+            Show available doctors
+          </Typography>
+          <Switch
+            name="onlyAvailable"
+            control={control}
+            aria-label="Only show available doctors"
           />
-        </S.AvailableToggle>
-        <S.SearchButton>Search</S.SearchButton>
+        </S.AvailabilityContainer>
+        <Button onClick={handleSearch}>Search</Button>
       </S.Filters>
     </S.FilterCard>
   );

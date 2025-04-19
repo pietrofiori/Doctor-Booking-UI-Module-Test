@@ -24,10 +24,6 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "src/types")
       },
       {
-        find: "@services",
-        replacement: path.resolve(__dirname, "src/services")
-      },
-      {
         find: "@assets",
         replacement: path.resolve(__dirname, "src/assets")
       },
@@ -40,16 +36,8 @@ export default defineConfig({
         replacement: path.resolve(__dirname, "src/screens")
       },
       {
-        find: "@entities",
-        replacement: path.resolve(__dirname, "src/entities")
-      },
-      {
         find: "@constants",
         replacement: path.resolve(__dirname, "src/constants")
-      },
-      {
-        find: "@helpers",
-        replacement: path.resolve(__dirname, "src/helpers")
       },
       {
         find: "@theme",
@@ -62,6 +50,10 @@ export default defineConfig({
       {
         find: "@hooks",
         replacement: path.resolve(__dirname, "src/hooks")
+      },
+      {
+        find: "@store",
+        replacement: path.resolve(__dirname, "src/store")
       }
     ]
   }

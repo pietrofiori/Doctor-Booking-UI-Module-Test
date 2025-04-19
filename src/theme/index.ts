@@ -87,6 +87,9 @@ export const Theme = {
       border: "#DEDCEF",
       plus: "#EFEFEF"
     },
+    lime:{
+      primary: "#C0CA33"
+    },
     yellow: {
       rating: "#FFC107"
     },

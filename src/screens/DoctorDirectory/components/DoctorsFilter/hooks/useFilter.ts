@@ -1,30 +1,29 @@
-import { useEffect, useState } from "react";
-import { MOCK_DOCTORS } from "@constants/MOCK_DOCTORS";
+import { FieldValues, useForm } from "react-hook-form";
+import { Doctor, MOCK_DOCTORS } from "@constants/MOCK_DOCTORS";
 
-export const useFilter = (setDoctors: (docs: typeof MOCK_DOCTORS) => void) => {
-  const [search, setSearch] = useState("");
-  const [specialty, setSpecialty] = useState("");
-  const [onlyAvailable, setOnlyAvailable] = useState(false);
+export const useFilter = (setDoctors: (docs: Doctor[]) => void) => {
+  const { control, watch } = useForm<FieldValues>();
+  const [name, specialty, onlyAvailable] = watch([
+    "name",
+    "specialty",
+    "onlyAvailable"
+  ]);
 
-  useEffect(() => {
-    const filtered = MOCK_DOCTORS.filter((doc) => {
+  const handleSearch = () => {
+    const filtered = MOCK_DOCTORS.filter((doctor) => {
       return (
-        (!search || doc.name.toLowerCase().includes(search.toLowerCase())) &&
+        (!name || doctor.name.toLowerCase().includes(name.toLowerCase())) &&
         (!specialty ||
-          doc.specialty.toLowerCase().includes(specialty.toLowerCase())) &&
-        (!onlyAvailable || doc.available)
+          doctor.specialty.toLowerCase().includes(specialty.toLowerCase())) &&
+        (!onlyAvailable || doctor.available)
       );
     });
 
     setDoctors(filtered);
-  }, [search, specialty, onlyAvailable, setDoctors]);
+  };
 
   return {
-    search,
-    specialty,
-    onlyAvailable,
-    setSearch,
-    setSpecialty,
-    setOnlyAvailable
+    control,
+    handleSearch
   };
 };

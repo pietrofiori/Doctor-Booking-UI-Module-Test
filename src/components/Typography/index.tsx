@@ -24,6 +24,7 @@ export interface TypographyProps extends CSSProperties {
   fontWeight?: keyof typeof FONT_WEIGHTS_PROPS;
   fontFamily?: keyof typeof FONT_FAMILIES_PROPS;
   color?: string;
+  id?: string;
   tag?: TagVariants;
   children: ReactNode;
   className?: string;
@@ -36,6 +37,7 @@ export const Typography = ({
   children,
   fontFamily,
   fontWeight,
+  id,
   color,
   fontSize = "bodyMedium",
   className,
@@ -43,6 +45,7 @@ export const Typography = ({
 }: TypographyProps) => (
   <S.DynamicTypography
     {...props}
+    id={id}
     tag={tag ? tag : MAPPED_TAGS[fontSize]}
     fontFamily={fontFamily}
     fontWeight={fontWeight}
