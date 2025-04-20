@@ -67,7 +67,7 @@ export const Select = <T extends FieldValues>({
               </option>
               {options.map((option) => (
                 <option key={option.value} value={option.value}>
-                  <Typography>{option.label}</Typography>
+                  {option.label}
                 </option>
               ))}
             </select>
