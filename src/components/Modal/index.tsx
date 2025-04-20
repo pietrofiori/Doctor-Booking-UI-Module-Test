@@ -63,7 +63,11 @@ export const Modal = ({
               )}
             </S.Title>
             {showCloseButton && (
-              <S.CloseButton onClick={onClose} type="button">
+              <S.CloseButton
+                onClick={onClose}
+                type="button"
+                aria-label="Close modal"
+              >
                 <Icon iconName="FaTimes" iconColor="black" />
               </S.CloseButton>
             )}

@@ -11,6 +11,7 @@ interface Option {
 export interface SelectProps<T extends FieldValues> {
   name: Path<T>;
   control?: Control<T>;
+  id?: string;
   options: Option[];
   disabled?: boolean;
   label?: string;
@@ -21,6 +22,7 @@ export interface SelectProps<T extends FieldValues> {
 
 export const Select = <T extends FieldValues>({
   name,
+  id,
   control,
   options,
   disabled = false,
@@ -49,6 +51,7 @@ export const Select = <T extends FieldValues>({
           control={control}
           render={({ field }) => (
             <select
+              id={id}
               {...field}
               disabled={disabled}
               value={field.value || ""}

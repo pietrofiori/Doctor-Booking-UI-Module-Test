@@ -1,3 +1,4 @@
+import { mediaQuery } from "@theme/mediaQuery";
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
@@ -23,8 +24,38 @@ export const AppointmentCard = styled.div(
     box-shadow: 0 2px 6px ${theme.colors.shadow.shadow1};
     padding: 16px;
     align-items: center;
+
+    ${mediaQuery("md", "max")`
+      h3{
+      font-size: 1.6rem;
+      }
+      p{
+      font-size: 1.4rem;
+      }
+  `}
+
+    ${mediaQuery("xs", "max")`
+      h3{
+      font-size: 1.4rem;
+      }
+      p{
+      font-size: 1.3rem;
+      }
+  `}
   `
 );
+
+export const DoctorName = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacings.xs};
+  justify-content: flex-start;
+
+  svg {
+    fill: ${({ theme }) => theme.colors.green.primary};
+  }
+`;
 
 export const Avatar = styled.img`
   width: 120px;

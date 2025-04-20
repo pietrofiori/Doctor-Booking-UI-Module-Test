@@ -1,5 +1,6 @@
 import * as S from "./styles";
 import { useAppointmentsStore } from "@store";
+import { Icon } from "@components/Icon";
 import { StarRating } from "@components/StarsRating";
 import { Typography } from "@components/Typography";
 
@@ -35,12 +36,15 @@ export const AppointmentsSummary = () => {
                 aria-label={`Portrait of ${appointment.doctor.name}`}
               />
               <S.Info>
-                <Typography id={`doctor-${index}`} tag="h4" fontWeight="bold">
-                  {appointment.doctor.name}
-                </Typography>
-                <Typography>{appointment.doctor.specialty}</Typography>
-                <Typography>{appointment.doctor.location}</Typography>
-                <Typography fontWeight="semibold">
+                <S.DoctorName>
+                  <Typography tag="h3" fontWeight="bold">
+                    {appointment.doctor.name}
+                  </Typography>
+                  <Icon iconName="FaCheckCircle" size={14}/>
+                </S.DoctorName>
+                <Typography tag="p">{appointment.doctor.specialty}</Typography>
+                <Typography tag="p">{appointment.doctor.location}</Typography>
+                <Typography fontWeight="semibold" tag="p">
                   Time: {appointment.time}
                 </Typography>
                 <StarRating rating={appointment.doctor.rating} />

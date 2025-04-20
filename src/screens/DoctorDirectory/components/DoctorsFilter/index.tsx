@@ -27,11 +27,13 @@ export const DoctorsFilter = ({ setDoctors }: DoctorsFilterProps) => {
           name="name"
           aria-label="Search doctor by name"
         />
+        <S.SpecialtyLabel htmlFor="specialty">Specialty</S.SpecialtyLabel>
         <Select
+          id="specialty"
+          name="specialty"
           placeholder="Search by specialty"
           options={MOCK_SPECIALTIES}
           control={control}
-          name="specialty"
           aria-label="Search doctor by specialty"
         />
         <S.AvailabilityContainer>

@@ -44,7 +44,12 @@ export const BookingModal = ({
     <Modal isOpen={isOpen} onClose={onClose} width="700px" height="500px">
       <S.Container>
         <S.Header>
-          <Typography id="booking-title" fontSize="heading5" fontWeight="bold">
+          <Typography
+            id="booking-title"
+            tag="h2"
+            fontSize="heading3"
+            fontWeight="bold"
+          >
             Book Appointment
           </Typography>
         </S.Header>
@@ -52,9 +57,7 @@ export const BookingModal = ({
         <S.DoctorInfo>
           <S.DoctorImage
             src={selectedDoctor.avatarUrl}
-            alt=""
-            role="img"
-            aria-label={`Portrait of ${selectedDoctor.name}`}
+            alt={`Portrait of ${selectedDoctor.name}`}
           />
           <S.NameAndSpecialty>
             <S.NameContainer>
@@ -75,8 +78,9 @@ export const BookingModal = ({
               key={time}
               selected={selectedTime === time}
               onClick={() => handleSelectedTime(time)}
-              aria-pressed={selectedTime === time}
               role="button"
+              aria-pressed={selectedTime === time}
+              tabIndex={0}
             >
               <Typography fontWeight="bold" fontSize="bodySmall">
                 {time}
@@ -92,6 +96,11 @@ export const BookingModal = ({
             onClick={handleConfirm}
             disabled={!selectedTime}
             aria-disabled={!selectedTime}
+            aria-label={
+              selectedTime
+                ? `Confirm appointment at ${selectedTime}`
+                : "Select a time slot before confirming"
+            }
           >
             Confirm Appointment
           </Button>

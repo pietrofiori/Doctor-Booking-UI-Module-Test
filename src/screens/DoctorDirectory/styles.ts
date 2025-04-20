@@ -1,3 +1,4 @@
+import { mediaQuery } from "@theme/mediaQuery";
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
@@ -8,8 +9,12 @@ export const Container = styled.div`
 
 export const DoctorList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: ${({ theme }) => theme.spacings.md};
+
+  ${mediaQuery("md", "max")`
+    grid-template-columns: 1fr;
+  `}
 `;
 
 export const DoctorCard = styled.div(
@@ -24,6 +29,24 @@ export const DoctorCard = styled.div(
     border-radius: ${theme.borderRadius.sm};
     width: 100%;
     box-shadow: 0 2px 4px ${theme.colors.shadow.shadow1};
+
+    ${mediaQuery("md", "max")`
+      h3{
+      font-size: 1.6rem;
+      }
+      p{
+      font-size: 1.4rem;
+      }
+  `}
+
+    ${mediaQuery("xs", "max")`
+      h3{
+      font-size: 1.4rem;
+      }
+      p{
+      font-size: 1.3rem;
+      }
+  `}
   `
 );
 

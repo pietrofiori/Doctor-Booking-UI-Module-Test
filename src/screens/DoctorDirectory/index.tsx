@@ -32,7 +32,7 @@ export const DoctorDirectory = () => {
                   <Typography tag="h3" fontWeight="bold">
                     {doctor.name}
                   </Typography>
-                  <Icon iconName="FaCheckCircle" />
+                  <Icon iconName="FaCheckCircle" size={14} />
                 </S.DoctorName>
                 <Typography tag="p">{doctor.specialty}</Typography>
                 <Typography tag="p">{doctor.location}</Typography>

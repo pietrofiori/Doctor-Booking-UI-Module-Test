@@ -120,7 +120,6 @@ export const Input = styled.input<{
     font-family: ${theme.fontFamilies.secondary};
     font-size: ${theme.fontSizes.label.labelLarge};
     font-weight: ${theme.fontWeight.regular};
-    color: ${theme.colors.gray.medium};
     background-color: ${theme.colors.white.primary};
     border: 1px solid ${theme.colors.gray.border};
     border-radius: ${theme.borderRadius.xs};
